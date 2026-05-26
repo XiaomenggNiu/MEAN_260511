@@ -135,29 +135,79 @@
 // }
 
 // Promise: pending, fullfilled, rejected
-let cond = 1;
-const newP = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    if (cond) resolve(100);
-    reject("not valid");
-  }, 2000);
-});
-newP
-  .then(
-    (v) => {
-      console.log(v);
-      return v;
-    },
-    (err) => {
-      console.log(err);
-      throw new Error(err);
-    },
-  )
-  .then((v) => {
-    console.log("succeed");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-console.log("end of File");
+// Promise.resolve("hello").then((v)=>{console.log(v)});
+// console.log("hi");
+// Promise.reject()
+
+// let cond = 1;
+// const newP = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     if (cond) resolve(100);
+//     reject("not valid");
+//   }, 2000);
+// });
+// newP
+//   .then(
+//     (v) => {
+//       console.log(v);
+//       return v;
+//     },
+//     (err) => {
+//       console.log(err);
+//       throw new Error(err);
+//     },
+//   )
+//   .then((v) => {
+//     console.log("succeed");
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+// console.log("end of File");
 // Promise chain
+
+// Promise.all
+// const p1 = new Promise((resolve, reject)=>{
+//     setTimeout(resolve("Data 1"), 1000);
+// });
+// const p2 = new Promise((resolve, reject)=>{
+//     setTimeout(reject("Data 2 failed"), 2000);
+// });
+// const p3 = new Promise((resolve, reject)=>{
+//     setTimeout(resolve("Data 3"), 1500);
+// });
+// Promise.all([p1, p2, p3]).then((val)=>{
+//     console.log(val);
+// }).catch((err)=>console.log("Error:", err))
+
+// Micro Task queue vs Macro Task Queue
+// console.log("Message 1");
+// setTimeout(() => {
+//   console.log("Message 2");
+// }, 0);
+// const myP = Promise.resolve();
+// myP
+//   .then((res) => console.log("Message 3"))
+//   .then(() => console.log("Message 4"));
+// console.log("Message 5");
+
+// Fetch: http request, returns a promise
+// fetch(url,{method:'POST', body:"datat to add"}).then().catch()
+
+// fetch("https://jsonplaceholder.typicode.com/todos/1").
+// then((res) => {
+//     console.log(res.status);
+//     return res.json();
+// }).then((data)=>{console.log(data)});
+
+// async/await
+async function fetchData(){
+    console.log("in function");
+    console.log("here");
+    const result = await fetch("https://jsonplaceholder.typicode.com/todos/1")
+    // in .then()
+    const data = await result.json();
+    console.log(data)
+    console.log("end");
+}
+fetchData();
