@@ -1,4 +1,4 @@
-<h1>Directives Intro</h1>
+<h1>Directives </h1>
 <ol>
     <li>Component</li>
     <li>Structral Directives: add/remove elements from DOM
@@ -16,10 +16,13 @@
     </li>
     <li>Custom Directives</li>
 </ol>
+<h1>Pipe Intro</h1>
+<p>Pipe: transfrom/format data in template. data | pipename: arguments</p>
 @for(todo of todos; track todo.id) {
-    <p>{{todo.id}} - {{todo.title}}
+    <p>{{todo.id}} - {{todo.title | titlecase}}
         @if(todo.completed){
             <span>✅ </span>
         }
     </p>
 }
+
