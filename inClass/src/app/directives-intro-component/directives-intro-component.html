@@ -1,0 +1,25 @@
+<h1>Directives Intro</h1>
+<ol>
+    <li>Component</li>
+    <li>Structral Directives: add/remove elements from DOM
+        <ul>
+            <li>ngIf: if(condition) </li>
+            <li>ngFor: for(sth of arr; track sth unique)</li>
+            <li>ngSwich</li>
+        </ul>
+    </li>
+    <li>Attribute Directives: change appearance of elements
+        <ul>
+            <li [ngStyle]="{backgroundColor: bgColor}">ngStyle</li>
+            <li [ngClass]="bgColor === 'blue' ? 'blue' : 'red'">ngClass</li>
+        </ul>
+    </li>
+    <li>Custom Directives</li>
+</ol>
+@for(todo of todos; track todo.id) {
+    <p>{{todo.id}} - {{todo.title}}
+        @if(todo.completed){
+            <span>✅ </span>
+        }
+    </p>
+}
