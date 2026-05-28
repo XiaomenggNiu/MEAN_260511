@@ -1,6 +1,7 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChildComponent } from './child-component/child-component';
+import { FirstService } from '../Services/first-service';
 
 @Component({
   selector: 'app-day3-component',
@@ -14,6 +15,10 @@ export class Day3Component implements OnInit{
   userInput = signal('hello');
   num = signal(10);
   fromChild = '';
+
+  // Inject Service Instance
+  private firstService = inject(FirstService);
+  username = '';
 
   ngOnInit(): void {
     // this.intval = setInterval(()=>{
@@ -30,6 +35,7 @@ export class Day3Component implements OnInit{
       this.num.set(0);
       console.log(this.num());
     }, 1000)
+    console.log(this.firstService.users);
   }
 
   onClick(){
@@ -41,6 +47,10 @@ export class Day3Component implements OnInit{
   handleChildEvent(str: string){
     console.log("inParent, "+str)
     this.fromChild = str;
+  }
+
+  addNewUser(){
+    this.firstService.newUsers = {username: this.username}
   }
 
 }

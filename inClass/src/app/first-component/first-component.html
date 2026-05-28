@@ -18,3 +18,9 @@
 <button [disabled]="disable" [textContent]="data">Disabled</button>
 <h2>Two-way data binding: {{userInput}}</h2>
 <input [(ngModel)]="userInput" />
+
+<ul>
+@for(user of users(); track user.id){
+    <li>{{user.username}}</li>
+}
+</ul>
