@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-lifecycle-intro',
@@ -6,7 +6,7 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
   templateUrl: './lifecycle-intro.html',
   styleUrl: './lifecycle-intro.scss',
 })
-export class LifecycleIntro implements OnInit, AfterContentInit, AfterViewInit, DoCheck, AfterContentChecked, AfterViewChecked, OnDestroy {
+export class LifecycleIntro implements OnInit, AfterContentInit, AfterViewInit, DoCheck, AfterContentChecked, AfterViewChecked, OnDestroy, OnChanges {
   /*
   1. Component created
   2. View rendered
@@ -40,5 +40,8 @@ export class LifecycleIntro implements OnInit, AfterContentInit, AfterViewInit, 
 
   ngOnDestroy(): void {
     console.log("On Destroy");
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("On changes");
   }
 }

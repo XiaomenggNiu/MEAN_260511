@@ -4,10 +4,11 @@ import { FirstComponent } from './first-component/first-component';
 import { DirectivesIntroComponent } from './directives-intro-component/directives-intro-component';
 import { LifecycleIntro } from './lifecycle-intro/lifecycle-intro';
 // import {FirstComponent} from './first-component/first-component';
+import { Day3Component } from './day3-component/day3-component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FirstComponent, DirectivesIntroComponent, LifecycleIntro],
+  imports: [RouterOutlet, Day3Component, FirstComponent, DirectivesIntroComponent, LifecycleIntro],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
