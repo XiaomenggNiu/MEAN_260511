@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { TodoItem } from '../todo.interface';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +27,9 @@ export class FetchDataService {
 
   getTodos() {
     // returns an Observable
-    return this.http.get<TodoItem[]>(this.url);
+    return this.http.get<TodoItem[]>(this.url).pipe(
+      tap((v)=>console.log(v))
+    );
   }
 
 }

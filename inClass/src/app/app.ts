@@ -6,6 +6,7 @@ import { LifecycleIntro } from './lifecycle-intro/lifecycle-intro';
 // import {FirstComponent} from './first-component/first-component';
 import { Day3Component } from './day3-component/day3-component';
 import { Day4Component } from './day4-component/day4-component';
+import { Day5Component } from './day5-component/day5-component';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import { Day4Component } from './day4-component/day4-component';
     DirectivesIntroComponent,
     LifecycleIntro,
     Day4Component,
+    Day5Component,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
