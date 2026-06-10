@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
 import { FetchDataService } from '../day4-component/Service/fetch-data-service';
-import { BehaviorSubject, first, fromEvent, Observable, ReplaySubject, Subject, Subscription } from 'rxjs';
+import { BehaviorSubject, debounce, debounceTime, first, fromEvent, map, Observable, ReplaySubject, Subject, Subscription } from 'rxjs';
 import { ShareDataService } from './Service/share-data-service';
 
 @Component({
@@ -92,6 +92,14 @@ export class Day5Component implements OnInit, AfterViewInit{
         console.log("from Event Observable", res)
         this.sub?.forEach((sub)=>sub.unsubscribe());
       })
+    }
+
+    const input = document.querySelector(".search-input");
+    if (input){
+      fromEvent(input, 'input').pipe(
+        debounceTime(3000),
+        map((event)=>(event.target as HTMLInputElement).value)
+      ).subscribe((val)=>{console.log(val)})
     }
 
    
