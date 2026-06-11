@@ -7,20 +7,34 @@
     @if(username.dirty && username.errors?.['minlength']){
         <p>Username has to be longer than 3 characters.</p>
     }
+    @if(username.dirty && username.errors?.['hasSpace']){
+        <p>Username cannot contain any space.</p>
+    }
     <br />
     <label>Email: </label>
     <input type="text" formControlName="email"/>
-    @if(registerForm.controls.email.dirty && registerForm.controls.email.errors?.['required']){
+    @if(registerForm.controls['email'].dirty && registerForm.controls['email'].errors?.['required']){
         <p>This field is required</p>
     }
-    @if(registerForm.controls.email.dirty && registerForm.controls.email.errors?.['email']){
+    @if(registerForm.controls['email'].dirty && registerForm.controls['email'].errors?.['email']){
         <p>Please use a valid email address</p>
+    }
+    @if(registerForm.controls['email'].dirty && registerForm.controls['email'].errors?.['emailExists']){
+        <p>This email is already registered.</p>
     }
     <br />
     <label>Age: </label>
     <input type="text" formControlName="age"/>
     @if (ageControl?.errors){
         <p>This field is required</p>
+    }
+    <label>Password: </label>
+    <input type="password" formControlName="password"/>
+    <br />
+    <label>Confirm Password: </label>
+    <input type="password" formControlName="confirmPassword"/>
+    @if(registerForm.errors?.['passwordMismatch']){
+        <p>Confirm Password has to be the same as password</p>
     }
 </form>
 <button>Submit</button>
