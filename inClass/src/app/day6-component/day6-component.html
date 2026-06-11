@@ -1,0 +1,26 @@
+<form [formGroup]="registerForm">
+    <label>Username: </label>
+    <input type="text" [formControl]="username"/>
+    @if(username.dirty && username.errors?.['required']){
+        <p>This field is required</p>
+    }
+    @if(username.dirty && username.errors?.['minlength']){
+        <p>Username has to be longer than 3 characters.</p>
+    }
+    <br />
+    <label>Email: </label>
+    <input type="text" formControlName="email"/>
+    @if(registerForm.controls.email.dirty && registerForm.controls.email.errors?.['required']){
+        <p>This field is required</p>
+    }
+    @if(registerForm.controls.email.dirty && registerForm.controls.email.errors?.['email']){
+        <p>Please use a valid email address</p>
+    }
+    <br />
+    <label>Age: </label>
+    <input type="text" formControlName="age"/>
+    @if (ageControl?.errors){
+        <p>This field is required</p>
+    }
+</form>
+<button>Submit</button>
