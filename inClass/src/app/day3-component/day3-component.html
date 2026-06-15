@@ -23,6 +23,7 @@
     <li>No relationship: Service</li>
 </ol>
 <div>Message from Child Component: {{fromChild}}</div>
-<app-child-component [fromParent]="userInput()"
+<!-- <app-child-component [fromParent]="userInput()"
 (toParent)="handleChildEvent($event)"
-></app-child-component>
+></app-child-component> -->
+<router-outlet />

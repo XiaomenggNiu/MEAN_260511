@@ -2,10 +2,11 @@ import { Component, OnInit, signal, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChildComponent } from './child-component/child-component';
 import { FirstService } from '../Services/first-service';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-day3-component',
-  imports: [FormsModule, ChildComponent],
+  imports: [FormsModule, ChildComponent, RouterOutlet],
   templateUrl: './day3-component.html',
   styleUrl: './day3-component.scss',
 })

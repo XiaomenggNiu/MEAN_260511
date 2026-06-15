@@ -46,6 +46,12 @@ export class Day6Component implements OnInit {
         [Validators.required, Validators.email],
         [this.emailExistsValidator()],
         // { updateOn: 'blur' }, do more research
+        /*
+          email: new FormGroup('', {
+            validators: [Validators.required, Validators.email],
+            updateOn: 'blur'
+          })
+        */
       ],
       age: ['', [Validators.required]],
       password: ['', [Validators.required]],
