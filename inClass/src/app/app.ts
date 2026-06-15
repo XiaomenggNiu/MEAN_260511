@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { FirstComponent } from './first-component/first-component';
 import { DirectivesIntroComponent } from './directives-intro-component/directives-intro-component';
 import { LifecycleIntro } from './lifecycle-intro/lifecycle-intro';
@@ -27,8 +27,16 @@ import { Day6Component } from './day6-component/day6-component';
 export class App {
   protected readonly title = signal('inClass');
   condition = true;
+  private router = inject(Router)
 
   toggle() {
     this.condition = !this.condition;
+  }
+
+  goToProduct(){
+    // perform the navigation with query
+    this.router.navigate(['/product/2/1'],{
+      queryParams: {sort: 'latest', page: 1}
+    })
   }
 }
