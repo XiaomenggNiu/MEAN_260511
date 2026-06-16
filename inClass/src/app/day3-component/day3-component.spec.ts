@@ -20,4 +20,11 @@ describe('Day3Component', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should update fromChild when child component event happens',()=>{
+    const childMessage = "Message from child output";
+    // call the method that handles child event
+    component.handleChildEvent(childMessage);
+    expect(component.fromChild).toBe(childMessage);
+  })
 });
