@@ -17,7 +17,7 @@
 <!-- Property Binding -->
 <button [disabled]="disable" [textContent]="data">Disabled</button>
 <h2>Two-way data binding: {{userInput}}</h2>
-<input [(ngModel)]="userInput" />
+<input aria-label="user-input" [(ngModel)]="userInput" />
 
 <ul>
 @for(user of users(); track user.id){
