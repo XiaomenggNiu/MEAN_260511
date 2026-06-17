@@ -1,0 +1,14 @@
+<h1>Counter: {{ count | async }}</h1>
+<button (click)="onClick()">Increment</button>
+<h1>Username: {{ username | async }}</h1>
+<input type="text" (change)="onChange($event)"/>
+<div>NGRX: follows the Redux pattern.
+    <ul>
+        <li>Store: central container for application states</li>
+        <li>Actions: describing what happened. Triggered by user Event</li>
+        <li>Reducers: pure functions to transit to a new state. Specify how the state changes in response to the Actions</li>
+        <li>(*)Selectors: pure fn to read part of the state</li>
+        <li>(*)Effects: handing side effects (Http requests, local storage...)</li>
+    </ul>
+    User event => action dispatched => trigger reducers => update state in store
+</div>
