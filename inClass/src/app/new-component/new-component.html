@@ -1,0 +1,37 @@
+<h1>More Directives</h1>
+<ul>
+    <li>ngContainer: does not create an actual DOM element</li>
+    <li>ngTemplate: by default the content will not show unless being used elsewhere</li>
+    <li>ngContent: content Projection/injection. Used to create reusable component</li>
+</ul>
+
+<ng-template #myTemplate>
+    <p>This content is inside ng-template.</p>
+</ng-template>
+
+<div *ngTemplateOutlet="myTemplate"></div>
+
+<div class="btn-container">
+    <ng-container >
+        <button>Button inside ngContainer</button>
+    </ng-container>
+</div>
+<!-- old syntax for structural directive -->
+<ng-container *ngIf="dataList.length; else myTemplate">
+    <div *ngFor="let d of dataList">
+        {{ d.item}}
+    </div>
+</ng-container>
+<ng-template [ngIf]="" />
+@if(dataList.length) {
+    @for(d of dataList; track d.id){
+        <div>{{ d.item}}</div>
+    }
+} @else {
+    <div *ngTemplateOutlet="myTemplate"></div>
+}
+<h1>ChangeDetection</h1>
+<div>
+    1.Default (check Always): observable, user event etc.
+    2.onPush(check once): input data changes(not user input), user event
+</div>

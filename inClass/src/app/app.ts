@@ -9,6 +9,7 @@ import { Day4Component } from './day4-component/day4-component';
 import { Day5Component } from './day5-component/day5-component';
 import { Day6Component } from './day6-component/day6-component';
 import { CounterComponent } from './counter-component/counter-component';
+import { NewComponent } from './new-component/new-component';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,7 @@ import { CounterComponent } from './counter-component/counter-component';
     LifecycleIntro,
     Day4Component,
     Day5Component,
-    Day6Component, CounterComponent
+    Day6Component, CounterComponent, NewComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',

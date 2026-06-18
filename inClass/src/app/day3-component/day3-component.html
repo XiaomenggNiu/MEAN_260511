@@ -25,5 +25,8 @@
 <div>Message from Child Component: {{fromChild}}</div>
 <app-child-component [fromParent]="userInput()"
 (toParent)="handleChildEvent($event)"
-></app-child-component>
+>
+    <h2 id="title">Usage of ng-content</h2>
+<p id="body">This is the template from Parent</p>
+</app-child-component>
 <!-- <router-outlet /> -->
