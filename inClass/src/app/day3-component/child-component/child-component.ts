@@ -1,4 +1,4 @@
-import { Component, input, OnChanges, OnInit, output, SimpleChanges } from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, ElementRef, input, OnChanges, OnInit, output, QueryList, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -7,11 +7,13 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './child-component.html',
   styleUrl: './child-component.scss',
 })
-export class ChildComponent implements OnChanges{
+export class ChildComponent implements OnChanges, AfterContentInit{
   fromParent = input<string>();
   val = '';
   toParent = output<string>();
 
+  @ContentChildren('#title') title: QueryList<HTMLElement> | undefined;
+//  contentChildren
   onUserInput(){
     // console.log(this.val);
     this.toParent.emit(this.val);
@@ -19,6 +21,10 @@ export class ChildComponent implements OnChanges{
   ngOnChanges(changes: SimpleChanges): void {
     // Only triggers when input properties (NOT user input) changes
     console.log("child comp, On Changes")
+  }
+
+  ngAfterContentInit(): void {
+    console.log(this.title);
   }
 
 }
